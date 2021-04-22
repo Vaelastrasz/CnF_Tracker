@@ -188,7 +188,7 @@
   </widget>
   <action name="actionExit">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
    </property>
    <property name="text">
@@ -200,7 +200,7 @@
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/copy.png</normaloff>:/icons/copy.png</iconset>
    </property>
    <property name="text">
@@ -212,7 +212,7 @@
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/paste.png</normaloff>:/icons/paste.png</iconset>
    </property>
    <property name="text">
@@ -224,7 +224,7 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
    </property>
    <property name="text">
@@ -236,7 +236,7 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/redo.png</normaloff>:/icons/redo.png</iconset>
    </property>
    <property name="text">
@@ -248,7 +248,7 @@
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/cut.png</normaloff>:/icons/cut.png</iconset>
    </property>
    <property name="text">
@@ -260,7 +260,7 @@
   </action>
   <action name="actionSwitchTab">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/switch.png</normaloff>:/icons/switch.png</iconset>
    </property>
    <property name="text">
@@ -272,7 +272,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
    </property>
    <property name="text">
@@ -284,7 +284,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/maximize.png</normaloff>:/icons/maximize.png</iconset>
    </property>
    <property name="text">
@@ -296,7 +296,7 @@
   </action>
   <action name="actionMinimizeWindow">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/minimize.png</normaloff>:/icons/minimize.png</iconset>
    </property>
    <property name="text">
@@ -308,7 +308,7 @@
   </action>
   <action name="actionImport_DB">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/import.png</normaloff>:/icons/import.png</iconset>
    </property>
    <property name="text">
@@ -320,7 +320,7 @@
   </action>
   <action name="actionExport_DB">
    <property name="icon">
-    <iconset>
+    <iconset resource="resources/resources.qrc">
      <normaloff>:/icons/export.png</normaloff>:/icons/export.png</iconset>
    </property>
    <property name="text">
@@ -332,6 +332,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

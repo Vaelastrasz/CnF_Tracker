@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "dbmanager.h"
 #include <QMainWindow>
 #include <QFile>
 
@@ -21,11 +22,20 @@ private slots:
 
     void on_actionMinimizeWindow_triggered();
 
+    void on_actionSwitchTab_triggered();
+
+    void on_rb_show1d_clicked();
+
+    void on_rb_show1h_clicked();
+
+    void on_rb_show1k_clicked();
+
 private:
     void startup();
     void applyStyleSheet();
 
     Ui::MainWindow *ui;
+    DBManager* m_dbHnd;
 };
 
 #endif // MAINWINDOW_H
