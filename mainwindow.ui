@@ -58,7 +58,7 @@
            <widget class="QPushButton" name="btn_addRecord">
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>80</width>
               <height>60</height>
              </size>
             </property>
@@ -68,7 +68,7 @@
              </font>
             </property>
             <property name="text">
-             <string>+</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -179,8 +179,8 @@
     <addaction name="separator"/>
     <addaction name="actionSwitchTab"/>
     <addaction name="separator"/>
-    <addaction name="actionMinimize_window"/>
-    <addaction name="actionMaximize_window"/>
+    <addaction name="actionMinimizeWindow"/>
+    <addaction name="actionMaximizeWindow"/>
    </widget>
    <addaction name="menu_File"/>
    <addaction name="menuAbout"/>
@@ -188,7 +188,7 @@
   </widget>
   <action name="actionExit">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
    </property>
    <property name="text">
@@ -200,7 +200,7 @@
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/copy.png</normaloff>:/icons/copy.png</iconset>
    </property>
    <property name="text">
@@ -212,7 +212,7 @@
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/paste.png</normaloff>:/icons/paste.png</iconset>
    </property>
    <property name="text">
@@ -224,7 +224,7 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
    </property>
    <property name="text">
@@ -236,7 +236,7 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/redo.png</normaloff>:/icons/redo.png</iconset>
    </property>
    <property name="text">
@@ -248,7 +248,7 @@
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/cut.png</normaloff>:/icons/cut.png</iconset>
    </property>
    <property name="text">
@@ -260,7 +260,7 @@
   </action>
   <action name="actionSwitchTab">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/switch.png</normaloff>:/icons/switch.png</iconset>
    </property>
    <property name="text">
@@ -272,40 +272,43 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
    </property>
    <property name="text">
     <string>About product</string>
    </property>
   </action>
-  <action name="actionMaximize_window">
+  <action name="actionMaximizeWindow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/maximize.png</normaloff>:/icons/maximize.png</iconset>
    </property>
    <property name="text">
     <string>Maximize window</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Enter</string>
+    <string>Ctrl+Return</string>
    </property>
   </action>
-  <action name="actionMinimize_window">
+  <action name="actionMinimizeWindow">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/minimize.png</normaloff>:/icons/minimize.png</iconset>
    </property>
    <property name="text">
     <string>Minimize window</string>
    </property>
    <property name="shortcut">
-    <string>Alt+M</string>
+    <string>Ctrl+M</string>
    </property>
   </action>
   <action name="actionImport_DB">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/import.png</normaloff>:/icons/import.png</iconset>
    </property>
    <property name="text">
@@ -317,7 +320,7 @@
   </action>
   <action name="actionExport_DB">
    <property name="icon">
-    <iconset resource="resources/resources.qrc">
+    <iconset>
      <normaloff>:/icons/export.png</normaloff>:/icons/export.png</iconset>
    </property>
    <property name="text">
@@ -329,8 +332,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resources/resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

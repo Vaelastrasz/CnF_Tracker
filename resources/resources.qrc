@@ -16,5 +16,7 @@
         <file>icons/switch.png</file>
         <file>icons/undo.png</file>
         <file>icons/truck.png</file>
+        <file>icons/plus.png</file>
+        <file>Medize.qss</file>
     </qresource>
 </RCC>
