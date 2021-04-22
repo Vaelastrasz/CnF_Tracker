@@ -15,5 +15,6 @@
         <file>icons/redo.png</file>
         <file>icons/switch.png</file>
         <file>icons/undo.png</file>
+        <file>icons/truck.png</file>
     </qresource>
 </RCC>
