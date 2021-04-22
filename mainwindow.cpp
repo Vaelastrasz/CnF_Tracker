@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#define TEXT(x) tr(x)
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     m_dbHnd(new DBManager()),
@@ -76,4 +74,9 @@ void MainWindow::on_rb_show1h_clicked() {
 void MainWindow::on_rb_show1k_clicked() {
 
     m_dbHnd->setShowRecCounter(ui->rb_show1k->text().toInt());
+}
+
+void MainWindow::on_actionExit_triggered() {
+
+    QCoreApplication::exit();
 }

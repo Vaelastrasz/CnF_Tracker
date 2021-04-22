@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     dbmanager.cpp
 
 HEADERS  += mainwindow.h \
-    dbmanager.h
+    dbmanager.h \
+    globalscope.h
 
 FORMS    += mainwindow.ui
 

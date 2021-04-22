@@ -3,7 +3,6 @@
 
 #include "dbmanager.h"
 #include <QMainWindow>
-#include <QFile>
 
 namespace Ui {
 class MainWindow;
@@ -30,12 +29,14 @@ private slots:
 
     void on_rb_show1k_clicked();
 
+    void on_actionExit_triggered();
+
 private:
     void startup();
     void applyStyleSheet();
 
-    Ui::MainWindow *ui;
     DBManager* m_dbHnd;
+    Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H
