@@ -34,7 +34,7 @@ void MainWindow::on_actionMinimizeWindow_triggered() {
 
 void MainWindow::startup() {
 
-    this->setWindowTitle(TEXT("C&F Tracker"));
+    this->setWindowTitle(TEXT("C&F Tracker v 0.0.1"));
     this->setWindowIcon(QIcon(":/icons/truck.png"));
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
     applyStyleSheet();
@@ -79,4 +79,13 @@ void MainWindow::on_rb_show1k_clicked() {
 void MainWindow::on_actionExit_triggered() {
 
     QCoreApplication::exit();
+}
+
+void MainWindow::on_tabs_currentChanged(int index) {
+
+    ui->tv_mainTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    if (index == 0) {
+        //update db rec show last
+        ui->tv_mainTableView->setModel(m_dbHnd->getLastRecordsModel());
+    }
 }

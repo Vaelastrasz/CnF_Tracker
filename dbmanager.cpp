@@ -3,6 +3,7 @@
 DBManager::DBManager() : m_showRecCounter(0),
   m_db(QSqlDatabase::addDatabase("QSQLITE")) {
 
+    //TODO: update DBName from registry
     if (QFile::exists(DBCurrentPath)) {
         m_db.setDatabaseName(DBCurrentPath);
     } else {
@@ -21,6 +22,9 @@ DBManager::~DBManager() {
     if (m_db.isOpen()) {
         m_db.close();
     }
+    if (m_currentModel) {
+        delete m_currentModel;
+    }
 }
 
 bool DBManager::tryCreateNewDB() {
@@ -34,11 +38,13 @@ bool DBManager::tryCreateNewDB() {
         qDebug() << TEXT("DB Location : ") + DBCurrentPath;
         qDebug() << TEXT("Exiting...");
         QCoreApplication::quit();
+        return false;
     }
     DBNewFile.close();
 
     qDebug() << TEXT("DB not found! Creating database at default location...");
     qDebug() << TEXT("DB Location : ") + DBCurrentPath;
+    return true;
 }
 
 int DBManager::showRecCounter() const {
@@ -49,4 +55,19 @@ int DBManager::showRecCounter() const {
 void DBManager::setShowRecCounter(int showRecCounter) {
 
     m_showRecCounter = showRecCounter;
+}
+
+QSqlQueryModel* DBManager::getLastRecordsModel() {
+
+    qDebug() << m_db.tables();
+    QSqlQuery getLastRecsQuery;
+    getLastRecsQuery.prepare("SELECT * FROM CarsGeneralTable");
+    if (getLastRecsQuery.exec()) {
+        m_currentModel = new QSqlQueryModel();
+        m_currentModel->setQuery(getLastRecsQuery);
+        qDebug() << "Read ok";
+        return m_currentModel;
+    } else {
+        qDebug() << "Cannot read!";
+    }
 }
