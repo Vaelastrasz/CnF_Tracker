@@ -10,6 +10,7 @@
 
 #include <QFile>
 #include <QDir>
+#include <QThread>
 
 #include <QDebug>
 #include <QObject>

@@ -61,7 +61,7 @@ QSqlQueryModel* DBManager::getLastRecordsModel() {
 
     qDebug() << m_db.tables();
     QSqlQuery getLastRecsQuery;
-    getLastRecsQuery.prepare("SELECT * FROM CarsGeneralTable LIMIT ?");
+    getLastRecsQuery.prepare("SELECT * FROM CarsGeneralTable ORDER BY Date DESC LIMIT ?");
     getLastRecsQuery.bindValue(0, m_showRecCounter);
     if (getLastRecsQuery.exec()) {
         m_currentModel = new QSqlQueryModel();

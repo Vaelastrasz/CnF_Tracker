@@ -33,6 +33,8 @@ private slots:
 
     void on_tabs_currentChanged(int index);
 
+    void showEvent(QShowEvent* event);
+
 private:
     void startup();
     void applyStyleSheet();

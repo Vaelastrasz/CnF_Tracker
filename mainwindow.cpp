@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow) {
 
     ui->setupUi(this);
-    startup();
 }
 
 MainWindow::~MainWindow() {
@@ -112,7 +111,11 @@ void MainWindow::on_actionExit_triggered() {
 void MainWindow::on_tabs_currentChanged(int index) {
 
     if (index == 0) {
-        //update db rec show last
         applyAndFitModel(m_dbHnd->getLastRecordsModel());
     }
+}
+
+void MainWindow::showEvent(QShowEvent *event) {
+
+    startup();
 }
