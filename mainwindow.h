@@ -36,6 +36,8 @@ private slots:
 private:
     void startup();
     void applyStyleSheet();
+    void fitModelToView();
+    void applyAndFitModel(QSqlQueryModel*);
 
     DBManager* m_dbHnd;
     Ui::MainWindow *ui;

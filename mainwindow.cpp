@@ -38,7 +38,7 @@ void MainWindow::startup() {
     this->setWindowIcon(QIcon(":/icons/truck.png"));
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
     applyStyleSheet();
-    on_rb_show1h_clicked();
+    on_rb_show1d_clicked();
 }
 
 void MainWindow::applyStyleSheet() {
@@ -48,6 +48,31 @@ void MainWindow::applyStyleSheet() {
     QString styleSheet = QString(style.readAll());
     style.close();
     this->setStyleSheet(styleSheet);
+}
+
+void MainWindow::fitModelToView() {
+
+    int colCnt = ui->tv_mainTableView->model()->columnCount();
+    int* tableSizeArray = new int[colCnt];
+    ui->tv_mainTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    for (int i = 0; i < colCnt - 1; i++) {
+        tableSizeArray[i] = ui->tv_mainTableView->horizontalHeader()->sectionSize(i);
+    }
+
+    ui->tv_mainTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    for (int i = 0; i < colCnt - 1; i++) {
+        ui->tv_mainTableView->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
+        qDebug() << ui->tv_mainTableView->horizontalHeader()->sectionSize(i);
+    }
+
+    delete[] tableSizeArray;
+}
+
+void MainWindow::applyAndFitModel(QSqlQueryModel* model) {
+
+    ui->tv_mainTableView->setModel(model);
+    fitModelToView();
 }
 
 void MainWindow::on_actionSwitchTab_triggered() {
@@ -64,16 +89,19 @@ void MainWindow::on_actionSwitchTab_triggered() {
 void MainWindow::on_rb_show1d_clicked() {
 
     m_dbHnd->setShowRecCounter(ui->rb_show1d->text().toInt());
+    applyAndFitModel(m_dbHnd->getLastRecordsModel());
 }
 
 void MainWindow::on_rb_show1h_clicked() {
 
     m_dbHnd->setShowRecCounter(ui->rb_show1h->text().toInt());
+    applyAndFitModel(m_dbHnd->getLastRecordsModel());
 }
 
 void MainWindow::on_rb_show1k_clicked() {
 
     m_dbHnd->setShowRecCounter(ui->rb_show1k->text().toInt());
+    applyAndFitModel(m_dbHnd->getLastRecordsModel());
 }
 
 void MainWindow::on_actionExit_triggered() {
@@ -83,9 +111,8 @@ void MainWindow::on_actionExit_triggered() {
 
 void MainWindow::on_tabs_currentChanged(int index) {
 
-    ui->tv_mainTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
     if (index == 0) {
         //update db rec show last
-        ui->tv_mainTableView->setModel(m_dbHnd->getLastRecordsModel());
+        applyAndFitModel(m_dbHnd->getLastRecordsModel());
     }
 }
