@@ -53,10 +53,9 @@ void MainWindow::applyStyleSheet() {
 void MainWindow::fitModelToView() {
 
     int colCnt;
-    if (UI_MODEL)
-        colCnt = UI_MODEL->columnCount();
-    else
+    if (!UI_MODEL)
         return;
+    colCnt = UI_MODEL->columnCount();
     int* tableSizeArray = new int[colCnt];
     UI_TABLE->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 

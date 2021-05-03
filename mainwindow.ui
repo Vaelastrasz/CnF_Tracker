@@ -35,6 +35,7 @@
          <widget class="QTableView" name="tv_mainTableView">
           <property name="font">
            <font>
+            <family>MS Shell Dlg 2</family>
             <pointsize>10</pointsize>
            </font>
           </property>
