@@ -18,5 +18,6 @@
         <file>icons/truck.png</file>
         <file>icons/plus.png</file>
         <file>Medize.qss</file>
+        <file>icons/refresh.png</file>
     </qresource>
 </RCC>

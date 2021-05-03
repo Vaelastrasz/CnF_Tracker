@@ -35,6 +35,12 @@ private slots:
 
     void showEvent(QShowEvent* event);
 
+    void resizeEvent(QResizeEvent* event);
+
+    void on_btn_refresh_clicked();
+
+    void on_btn_addRecord_clicked();
+
 private:
     void startup();
     void applyStyleSheet();

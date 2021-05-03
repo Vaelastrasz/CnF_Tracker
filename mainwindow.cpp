@@ -33,9 +33,10 @@ void MainWindow::on_actionMinimizeWindow_triggered() {
 
 void MainWindow::startup() {
 
-    this->setWindowTitle(TEXT("C&F Tracker v 0.0.1"));
+    this->setWindowTitle(TEXT("C&F Tracker v0.0.1"));
     this->setWindowIcon(QIcon(":/icons/truck.png"));
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
+    ui->btn_refresh->setIcon(QIcon(":/icons/refresh.png"));
     applyStyleSheet();
     on_rb_show1d_clicked();
 }
@@ -51,18 +52,22 @@ void MainWindow::applyStyleSheet() {
 
 void MainWindow::fitModelToView() {
 
-    int colCnt = ui->tv_mainTableView->model()->columnCount();
+    int colCnt;
+    if (UI_MODEL)
+        colCnt = UI_MODEL->columnCount();
+    else
+        return;
     int* tableSizeArray = new int[colCnt];
-    ui->tv_mainTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    UI_TABLE->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     for (int i = 0; i < colCnt - 1; i++) {
-        tableSizeArray[i] = ui->tv_mainTableView->horizontalHeader()->sectionSize(i);
+        tableSizeArray[i] = UI_TABLE->horizontalHeader()->sectionSize(i);
     }
 
-    ui->tv_mainTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    UI_TABLE->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
     for (int i = 0; i < colCnt - 1; i++) {
-        ui->tv_mainTableView->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
-        qDebug() << ui->tv_mainTableView->horizontalHeader()->sectionSize(i);
+        UI_TABLE->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
+        qDebug() << UI_TABLE->horizontalHeader()->sectionSize(i);
     }
 
     delete[] tableSizeArray;
@@ -70,7 +75,7 @@ void MainWindow::fitModelToView() {
 
 void MainWindow::applyAndFitModel(QSqlQueryModel* model) {
 
-    ui->tv_mainTableView->setModel(model);
+    UI_TABLE->setModel(model);
     fitModelToView();
 }
 
@@ -117,5 +122,22 @@ void MainWindow::on_tabs_currentChanged(int index) {
 
 void MainWindow::showEvent(QShowEvent *event) {
 
+    Q_UNUSED(event);
     startup();
+}
+
+void MainWindow::resizeEvent(QResizeEvent *event) {
+
+    QMainWindow::resizeEvent(event);
+    fitModelToView();
+}
+
+void MainWindow::on_btn_refresh_clicked() {
+
+    applyAndFitModel(m_dbHnd->getLastRecordsModel());
+}
+
+void MainWindow::on_btn_addRecord_clicked() {
+
+    UI_MODEL->insertRow(UI_MODEL->rowCount(QModelIndex()));
 }
