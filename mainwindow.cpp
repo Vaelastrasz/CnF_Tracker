@@ -72,8 +72,9 @@ void MainWindow::fitModelToView() {
     delete[] tableSizeArray;
 }
 
-void MainWindow::applyAndFitModel(QSqlQueryModel* model) {
+void MainWindow::applyAndFitModel(QSqlTableModel* model) {
 
+    if (!model) return;
     UI_TABLE->setModel(model);
     fitModelToView();
 }
@@ -138,5 +139,15 @@ void MainWindow::on_btn_refresh_clicked() {
 
 void MainWindow::on_btn_addRecord_clicked() {
 
-    UI_MODEL->insertRow(UI_MODEL->rowCount(QModelIndex()));
+    qDebug() << "addRecord";
+    m_dbHnd->addNewRecord();
+//    QSqlRecord newRecord = record();
+//    newRecord.setValue("name", "Enter Name");
+//    newRecord.setValue("gender", 0);
+//    newRecord.setValue("married", 0);
+
+//    if (UI_MODEL->insertRecord(UI_MODEL->rowCount(), newRecord)) {
+//        qDebug() << "New record inserted";
+//    }
+//    UI_MODEL->insertRow(UI_MODEL->rowCount(QModelIndex()));
 }

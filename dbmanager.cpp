@@ -15,6 +15,12 @@ DBManager::DBManager() : m_showRecCounter(0),
     } else {
         qDebug() << TEXT("Database: conection ok");
     }
+
+    m_currentModel = new SqlTableModel(this, m_db);
+    m_currentModel->setTable("CarsGeneralTable");
+    m_currentModel->setEditStrategy(QSqlTableModel::OnRowChange);
+    m_currentModel->setLimit(showRecCounter());
+    m_currentModel->sort(4, Qt::DescendingOrder); //sort by date desc
 }
 
 DBManager::~DBManager() {
@@ -57,18 +63,18 @@ void DBManager::setShowRecCounter(int showRecCounter) {
     m_showRecCounter = showRecCounter;
 }
 
-QSqlQueryModel* DBManager::getLastRecordsModel() {
+QSqlTableModel* DBManager::getLastRecordsModel() {
 
-    qDebug() << m_db.tables();
-    QSqlQuery getLastRecsQuery;
-    getLastRecsQuery.prepare("SELECT * FROM CarsGeneralTable ORDER BY Date DESC LIMIT ?");
-    getLastRecsQuery.bindValue(0, m_showRecCounter);
-    if (getLastRecsQuery.exec()) {
-        m_currentModel = new QSqlQueryModel();
-        m_currentModel->setQuery(getLastRecsQuery);
-        qDebug() << "Read ok";
+    m_currentModel->setLimit(m_showRecCounter);
+    if (m_currentModel->select()) {
         return m_currentModel;
     } else {
-        qDebug() << "Cannot read!";
+        qDebug() << "Error selecting values";
+        return nullptr;
     }
+}
+
+bool DBManager::addNewRecord() {
+
+    m_currentModel->addNewRecord();
 }

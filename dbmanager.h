@@ -1,22 +1,9 @@
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
 
-#include <QSqlDriver>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QSqlRecord>
-#include <QSqlQueryModel>
-
-#include <QFile>
-#include <QDir>
-#include <QThread>
-
-#include <QDebug>
-#include <QObject>
 #include <QCoreApplication>
 
-#include "globalscope.h"
+#include "sqltablemodel.h"
 
 class DBManager : QObject
 {
@@ -27,12 +14,13 @@ public:
     bool tryCreateNewDB();
     int showRecCounter() const;
     void setShowRecCounter(int showRecCounter);
-    QSqlQueryModel* getLastRecordsModel();
+    QSqlTableModel *getLastRecordsModel();
+    bool addNewRecord();
 
 private:
     int m_showRecCounter;
     QSqlDatabase m_db;
-    QSqlQueryModel* m_currentModel;
+    SqlTableModel* m_currentModel;
     QString DBCurrentPath = DB_DEFAULT_PATH;
 };
 

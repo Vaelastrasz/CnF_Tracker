@@ -45,7 +45,7 @@ private:
     void startup();
     void applyStyleSheet();
     void fitModelToView();
-    void applyAndFitModel(QSqlQueryModel*);
+    void applyAndFitModel(QSqlTableModel *);
 
     DBManager* m_dbHnd;
     Ui::MainWindow *ui;
