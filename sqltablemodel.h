@@ -11,7 +11,7 @@ public:
 
     int limit() const;
     void setLimit(int limit);
-    bool addNewRecord();
+    bool addNewRecord(CarRecord*);
 
 protected:
     QString selectStatement() const;

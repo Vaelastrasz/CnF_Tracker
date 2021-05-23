@@ -4,6 +4,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     m_dbHnd(new DBManager()),
+    m_insertRecWindow(new InsertRecord),
     ui(new Ui::MainWindow) {
 
     ui->setupUi(this);
@@ -37,6 +38,8 @@ void MainWindow::startup() {
     this->setWindowIcon(QIcon(":/icons/truck.png"));
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
     ui->btn_refresh->setIcon(QIcon(":/icons/refresh.png"));
+    connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), m_dbHnd, SLOT(addNewRecord(CarRecord*)));
+    connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), this, SLOT(on_btn_refresh_clicked()));
     applyStyleSheet();
     on_rb_show1d_clicked();
 }
@@ -140,14 +143,8 @@ void MainWindow::on_btn_refresh_clicked() {
 void MainWindow::on_btn_addRecord_clicked() {
 
     qDebug() << "addRecord";
-    m_dbHnd->addNewRecord();
-//    QSqlRecord newRecord = record();
-//    newRecord.setValue("name", "Enter Name");
-//    newRecord.setValue("gender", 0);
-//    newRecord.setValue("married", 0);
 
-//    if (UI_MODEL->insertRecord(UI_MODEL->rowCount(), newRecord)) {
-//        qDebug() << "New record inserted";
-//    }
-//    UI_MODEL->insertRow(UI_MODEL->rowCount(QModelIndex()));
+    m_insertRecWindow->setModal(true);
+    m_insertRecWindow->exec();
+//    m_dbHnd->addNewRecord();
 }

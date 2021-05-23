@@ -5,7 +5,7 @@
 
 #include "sqltablemodel.h"
 
-class DBManager : QObject
+class DBManager : public QObject
 {
     Q_OBJECT
 public:
@@ -15,7 +15,8 @@ public:
     int showRecCounter() const;
     void setShowRecCounter(int showRecCounter);
     QSqlTableModel *getLastRecordsModel();
-    bool addNewRecord();
+public slots:
+    void addNewRecord(CarRecord* rec);
 
 private:
     int m_showRecCounter;

@@ -74,7 +74,7 @@ QSqlTableModel* DBManager::getLastRecordsModel() {
     }
 }
 
-bool DBManager::addNewRecord() {
+void DBManager::addNewRecord(CarRecord *rec) {
 
-    m_currentModel->addNewRecord();
+    m_currentModel->addNewRecord(rec);
 }

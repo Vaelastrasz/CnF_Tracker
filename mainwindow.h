@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "dbmanager.h"
+#include "insertrecord.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -48,6 +49,7 @@ private:
     void applyAndFitModel(QSqlTableModel *);
 
     DBManager* m_dbHnd;
+    InsertRecord* m_insertRecWindow;
     Ui::MainWindow *ui;
 };
 

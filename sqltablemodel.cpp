@@ -17,17 +17,17 @@ void SqlTableModel::setLimit(int limit) {
     }
 }
 
-bool SqlTableModel::addNewRecord() {
+bool SqlTableModel::addNewRecord(CarRecord* rec) {
 
     QSqlRecord newRecord = record();
-    newRecord.setValue("CarName", "Enter Car");
-    newRecord.setValue("Driver", "Enter Driver");
-    newRecord.setValue("TankCapacity", 0);
-    newRecord.setValue("Mileage", 0);
-    newRecord.setValue("Date", QDateTime::currentDateTime());
-    newRecord.setValue("AlreadyRun", 0);
-    newRecord.setValue("Fueling", 0);
-    newRecord.setValue("FuelingNorm", 0);
+    newRecord.setValue("CarName", rec->carName);
+    newRecord.setValue("Driver", rec->driver);
+    newRecord.setValue("TankCapacity", rec->tankCapacity);
+    newRecord.setValue("Mileage", rec->mileage);
+    newRecord.setValue("Date", QDateTime::currentDateTime()); //TODO: CHANGE
+    newRecord.setValue("AlreadyRun", rec->alreadyRun);
+    newRecord.setValue("Fueling", rec->fueling);
+    newRecord.setValue("FuelingNorm", rec->fuelingNorm);
 
     if (insertRecord(rowCount(), newRecord)) {
         qDebug() << "New record inserted";

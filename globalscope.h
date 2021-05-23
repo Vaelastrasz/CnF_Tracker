@@ -22,12 +22,12 @@
 #define UI_MODEL ui->tv_mainTableView->model()
 #define UI_TABLE ui->tv_mainTableView
 
-struct TypicalRecord {
+struct CarRecord {
     QString   carName;
     QString   driver;
     int       tankCapacity;
     int       mileage;
-    QDateTime date;
+    QDate     date;
     int       alreadyRun;
     int       fueling;
     int       fuelingNorm;

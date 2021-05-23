@@ -15,14 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     dbmanager.cpp \
-    sqltablemodel.cpp
+    sqltablemodel.cpp \
+    insertrecord.cpp
 
 HEADERS  += mainwindow.h \
     dbmanager.h \
     globalscope.h \
-    sqltablemodel.h
+    sqltablemodel.h \
+    insertrecord.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    insertrecord.ui
 
 RESOURCES += \
     resources/resources.qrc
