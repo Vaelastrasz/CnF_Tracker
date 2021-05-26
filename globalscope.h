@@ -15,6 +15,7 @@
 #include <QObject>
 #include <QFile>
 #include <QDir>
+#include <QIcon>
 #include <QThread>
 
 #define TEXT(x) tr(x)
