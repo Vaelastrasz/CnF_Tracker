@@ -10,10 +10,10 @@ int SqlTableModel::limit() const {
     return m_limit;
 }
 
-void SqlTableModel::setLimit(int limit) {
+void SqlTableModel::setLimit(int newLimit) {
 
-    if(limit > 0) {
-        m_limit = limit;
+    if(newLimit > 0) {
+        m_limit = newLimit;
     }
 }
 

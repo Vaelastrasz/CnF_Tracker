@@ -9,6 +9,8 @@ InsertRecord::InsertRecord(QWidget *parent) :
     applyStyleSheet();
     this->setWindowIcon(QIcon(":/icons/plus.png"));
     this->setWindowTitle("Add new record");
+    ui->edit_date->setCalendarPopup(true);
+    ui->edit_date->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
 }
 
 InsertRecord::~InsertRecord() {

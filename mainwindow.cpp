@@ -38,15 +38,22 @@ void MainWindow::startup() {
     this->setWindowIcon(QIcon(":/icons/truck.png"));
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
     ui->btn_refresh->setIcon(QIcon(":/icons/refresh.png"));
+
     connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), m_dbHnd, SLOT(addNewRecord(CarRecord*)));
     connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), this, SLOT(on_btn_refresh_clicked()));
-    applyStyleSheet();
-    on_rb_show1d_clicked();
+
+    ui->edit_startDate->setCalendarPopup(true);
+    ui->edit_startDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
+    ui->edit_endDate->setCalendarPopup(true);
+    ui->edit_endDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
+
+    applyStyleSheet(QString(":/Medize.qss"));
+    on_rb_show1k_clicked();
 }
 
-void MainWindow::applyStyleSheet() {
+void MainWindow::applyStyleSheet(QString fileName) {
 
-    QFile style(":/Medize.qss");
+    QFile style(fileName);
     style.open(QIODevice::ReadOnly);
     QString styleSheet = QString(style.readAll());
     style.close();
@@ -121,6 +128,9 @@ void MainWindow::on_tabs_currentChanged(int index) {
     if (index == 0) {
         applyAndFitModel(m_dbHnd->getLastRecordsModel());
     }
+    if (index == 1) {
+
+    }
 }
 
 void MainWindow::showEvent(QShowEvent *event) {
@@ -146,5 +156,24 @@ void MainWindow::on_btn_addRecord_clicked() {
 
     m_insertRecWindow->setModal(true);
     m_insertRecWindow->exec();
-//    m_dbHnd->addNewRecord();
+}
+
+void MainWindow::on_actionMedize_triggered() {
+
+    applyStyleSheet(QString(":/Medize.qss"));
+}
+
+void MainWindow::on_actionDiffnes_triggered() {
+
+    applyStyleSheet(QString(":/Diffnes.qss"));
+}
+
+void MainWindow::on_actionStartPage_triggered() {
+
+    applyStyleSheet(QString(":/Cstartpage.qss"));
+}
+
+void MainWindow::on_actionMailSy_triggered() {
+
+    applyStyleSheet(QString(":/MailSy.qss"));
 }

@@ -17,6 +17,7 @@
 #include <QDir>
 #include <QIcon>
 #include <QThread>
+#include <QCalendarWidget>
 
 #define TEXT(x) tr(x)
 #define DB_DEFAULT_PATH QString("D:\\Projects\\CnF_Tracker\\resources\\CarsDB.db")

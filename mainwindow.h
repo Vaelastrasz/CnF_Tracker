@@ -42,9 +42,17 @@ private slots:
 
     void on_btn_addRecord_clicked();
 
+    void on_actionMedize_triggered();
+
+    void on_actionDiffnes_triggered();
+
+    void on_actionStartPage_triggered();
+
+    void on_actionMailSy_triggered();
+
 private:
     void startup();
-    void applyStyleSheet();
+    void applyStyleSheet(QString);
     void fitModelToView();
     void applyAndFitModel(QSqlTableModel *);
 

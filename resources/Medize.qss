@@ -24,6 +24,23 @@ QWidget{
 	background-color: #e6e7eb;
 }
 
+QDateEdit {
+    background-color: #FFFFFF;
+}
+
+QCalendarWidget QWidget#qt_calendar_navigationbar
+{
+    background-color: #d6e1f0;
+}
+
+QCalendarWidget QToolButton {
+    color: black;
+}
+
+QCalendarWidget QToolButton::hover {
+    color: black;
+}
+
 /*-----QLabel-----*/
 QLabel
 {
