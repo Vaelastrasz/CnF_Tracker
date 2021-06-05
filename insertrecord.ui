@@ -418,6 +418,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>edit_carName</tabstop>
+  <tabstop>edit_driver</tabstop>
+  <tabstop>edit_tankCap</tabstop>
+  <tabstop>edit_mileage</tabstop>
+  <tabstop>edit_date</tabstop>
+  <tabstop>edit_alreadyRun</tabstop>
+  <tabstop>edit_fueling</tabstop>
+  <tabstop>edit_fuelingNorm</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

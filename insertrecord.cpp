@@ -18,6 +18,9 @@ InsertRecord::~InsertRecord() {
 
 void InsertRecord::on_buttonBox_accepted() {
 
+    //TODO: Add QCompleter
+    //TODO: Add QValidator
+
     CarRecord* newRec = new CarRecord;
     newRec->carName = ui->edit_carName->text();
     newRec->driver = ui->edit_driver->text();
