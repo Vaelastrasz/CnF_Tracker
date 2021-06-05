@@ -17,6 +17,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+signals:
+    void setStyleSignal(QString);
+
 private slots:
     void on_actionMaximizeWindow_toggled(bool arg1);
 

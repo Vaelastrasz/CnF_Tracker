@@ -21,11 +21,12 @@ private slots:
 
     void on_buttonBox_rejected();
 
+    void applyStyleSheet(QString);
+
 signals:
     void insertNewRecord(CarRecord*);
 
 protected:
-    void applyStyleSheet();
     void clearAllEdit();
 
 private:

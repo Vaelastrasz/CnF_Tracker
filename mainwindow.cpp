@@ -41,6 +41,7 @@ void MainWindow::startup() {
 
     connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), m_dbHnd, SLOT(addNewRecord(CarRecord*)));
     connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), this, SLOT(on_btn_refresh_clicked()));
+    connect(this, SIGNAL(setStyleSignal(QString)), m_insertRecWindow, SLOT(applyStyleSheet(QString)));
 
     ui->edit_startDate->setCalendarPopup(true);
     ui->edit_startDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
@@ -58,6 +59,7 @@ void MainWindow::applyStyleSheet(QString fileName) {
     QString styleSheet = QString(style.readAll());
     style.close();
     this->setStyleSheet(styleSheet);
+    emit setStyleSignal(fileName);
 }
 
 void MainWindow::fitModelToView() {
@@ -75,7 +77,7 @@ void MainWindow::fitModelToView() {
 
     UI_TABLE->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
     for (int i = 0; i < colCnt - 1; i++) {
-        UI_TABLE->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
+        emit UI_TABLE->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
         qDebug() << UI_TABLE->horizontalHeader()->sectionSize(i);
     }
 

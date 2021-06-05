@@ -6,7 +6,7 @@ InsertRecord::InsertRecord(QWidget *parent) :
     ui(new Ui::InsertRecord) {
 
     ui->setupUi(this);
-    applyStyleSheet();
+    applyStyleSheet(QString(":/Medize.qss"));
     this->setWindowIcon(QIcon(":/icons/plus.png"));
     this->setWindowTitle("Add new record");
     ui->edit_date->setCalendarPopup(true);
@@ -42,9 +42,9 @@ void InsertRecord::on_buttonBox_rejected() {
     clearAllEdit();
 }
 
-void InsertRecord::applyStyleSheet() {
+void InsertRecord::applyStyleSheet(QString fileName) {
 
-    QFile style(":/Medize.qss");
+    QFile style(fileName);
     style.open(QIODevice::ReadOnly);
     QString styleSheet = QString(style.readAll());
     style.close();
