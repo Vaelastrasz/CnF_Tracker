@@ -24,7 +24,7 @@ void InsertRecord::on_buttonBox_accepted() {
     //TODO: Add QValidator
 
     CarRecord* newRec = new CarRecord;
-    newRec->carName = ui->edit_carName->text();
+    newRec->carName = ui->combo_carName->currentText();
     newRec->driver = ui->edit_driver->text();
     newRec->tankCapacity = ui->edit_tankCap->text().toInt();
     newRec->mileage = ui->edit_mileage->text().toInt();
@@ -32,8 +32,9 @@ void InsertRecord::on_buttonBox_accepted() {
     newRec->alreadyRun = ui->edit_alreadyRun->text().toInt();
     newRec->fueling = ui->edit_fueling->text().toInt();
     newRec->fuelingNorm = ui->edit_fuelingNorm->text().toInt();
-    clearAllEdit();
     emit insertNewRecord(newRec);
+
+    clearAllEdit();
     delete newRec;
 }
 
@@ -53,7 +54,7 @@ void InsertRecord::applyStyleSheet(QString fileName) {
 
 void InsertRecord::clearAllEdit() {
 
-    ui->edit_carName->clear();
+    ui->combo_carName->clear();
     ui->edit_driver->clear();
     ui->edit_tankCap->clear();
     ui->edit_mileage->clear();

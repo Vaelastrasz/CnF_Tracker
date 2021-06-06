@@ -16,8 +16,29 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="9" column="0">
-      <spacer name="verticalSpacer_5">
+     <item row="6" column="1" colspan="2">
+      <spacer name="horizontalSpacer_4">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -42,47 +63,8 @@
        </property>
       </spacer>
      </item>
-     <item row="5" column="0">
-      <spacer name="verticalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="0">
-      <spacer name="verticalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
      <item row="11" column="0">
       <spacer name="verticalSpacer_6">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="0">
-      <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -115,8 +97,59 @@
        </property>
       </spacer>
      </item>
-     <item row="0" column="4">
-      <widget class="QLineEdit" name="edit_carName">
+     <item row="3" column="0">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="9" column="0">
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="0">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lbl_mileage">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Mileage:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLineEdit" name="edit_driver">
        <property name="minimumSize">
         <size>
          <width>250</width>
@@ -127,6 +160,18 @@
         <font>
          <pointsize>10</pointsize>
         </font>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lbl_tankCap">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Tank capacity:</string>
        </property>
       </widget>
      </item>
@@ -154,30 +199,6 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="lbl_mileage">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Mileage:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="lbl_tankCap">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Tank capacity:</string>
-       </property>
-      </widget>
-     </item>
      <item row="8" column="1" colspan="2">
       <spacer name="horizontalSpacer_5">
        <property name="font">
@@ -199,23 +220,8 @@
        </property>
       </spacer>
      </item>
-     <item row="2" column="4">
-      <widget class="QLineEdit" name="edit_driver">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1" colspan="2">
-      <spacer name="horizontalSpacer_3">
+     <item row="12" column="2">
+      <spacer name="horizontalSpacer_7">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
@@ -235,8 +241,8 @@
        </property>
       </spacer>
      </item>
-     <item row="6" column="1" colspan="2">
-      <spacer name="horizontalSpacer_4">
+     <item row="4" column="1" colspan="2">
+      <spacer name="horizontalSpacer_3">
        <property name="font">
         <font>
          <pointsize>10</pointsize>
@@ -307,66 +313,6 @@
        </property>
       </widget>
      </item>
-     <item row="12" column="2">
-      <spacer name="horizontalSpacer_7">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Preferred</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="10" column="0" colspan="2">
-      <widget class="QLabel" name="lbl_alreadyRun">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>AlreadyRun:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="4">
-      <widget class="QLineEdit" name="edit_mileage">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="lbl_date">
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Date:</string>
-       </property>
-      </widget>
-     </item>
      <item row="14" column="4">
       <widget class="QLineEdit" name="edit_fuelingNorm">
        <property name="minimumSize">
@@ -394,8 +340,32 @@
        </property>
       </widget>
      </item>
-     <item row="12" column="4">
-      <widget class="QLineEdit" name="edit_fueling">
+     <item row="10" column="0" colspan="2">
+      <widget class="QLabel" name="lbl_alreadyRun">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>AlreadyRun:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="lbl_date">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Date:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLineEdit" name="edit_mileage">
        <property name="minimumSize">
         <size>
          <width>250</width>
@@ -430,26 +400,20 @@
        </property>
       </spacer>
      </item>
-     <item row="14" column="2">
-      <spacer name="horizontalSpacer_8">
+     <item row="12" column="4">
+      <widget class="QLineEdit" name="edit_fueling">
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>10</pointsize>
         </font>
        </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Preferred</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
+      </widget>
      </item>
      <item row="14" column="0" colspan="2">
       <widget class="QLabel" name="lbl_fuelingNorm">
@@ -477,6 +441,27 @@
        </property>
       </widget>
      </item>
+     <item row="14" column="2">
+      <spacer name="horizontalSpacer_8">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="13" column="0">
       <spacer name="verticalSpacer_7">
        <property name="orientation">
@@ -489,6 +474,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="0" column="4">
+      <widget class="QComboBox" name="combo_carName">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -510,7 +502,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>edit_carName</tabstop>
   <tabstop>edit_driver</tabstop>
   <tabstop>edit_tankCap</tabstop>
   <tabstop>edit_mileage</tabstop>

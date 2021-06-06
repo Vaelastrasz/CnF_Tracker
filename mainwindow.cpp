@@ -39,9 +39,11 @@ void MainWindow::startup() {
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
     ui->btn_refresh->setIcon(QIcon(":/icons/refresh.png"));
 
-    connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), m_dbHnd, SLOT(addNewRecord(CarRecord*)));
-    connect(m_insertRecWindow, SIGNAL(insertNewRecord(CarRecord*)), this, SLOT(on_btn_refresh_clicked()));
-    connect(this, SIGNAL(setStyleSignal(QString)), m_insertRecWindow, SLOT(applyStyleSheet(QString)));
+    connect(m_insertRecWindow, &InsertRecord::insertNewRecord, m_dbHnd, &DBManager::addNewRecord);
+    connect(m_insertRecWindow, &InsertRecord::insertNewRecord, this, &MainWindow::on_btn_refresh_clicked);
+    connect(this, &MainWindow::setStyleSignal, m_insertRecWindow, &InsertRecord::applyStyleSheet);
+    connect(this, &MainWindow::getNames, m_dbHnd, &DBManager::processCarNamesRequest);
+    connect(m_dbHnd, &DBManager::sendCarNames, this, &MainWindow::setNamesToCombo);
 
     ui->edit_startDate->setCalendarPopup(true);
     ui->edit_startDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
@@ -91,6 +93,11 @@ void MainWindow::applyAndFitModel(QSqlTableModel* model) {
     fitModelToView();
 }
 
+void MainWindow::fillComboNames() {
+
+    emit getNames();
+}
+
 void MainWindow::on_actionSwitchTab_triggered() {
 
     int idx = ui->tabs->currentIndex();
@@ -131,7 +138,7 @@ void MainWindow::on_tabs_currentChanged(int index) {
         applyAndFitModel(m_dbHnd->getLastRecordsModel());
     }
     if (index == 1) {
-
+        fillComboNames();
     }
 }
 
@@ -178,4 +185,10 @@ void MainWindow::on_actionStartPage_triggered() {
 void MainWindow::on_actionMailSy_triggered() {
 
     applyStyleSheet(QString(":/MailSy.qss"));
+}
+
+void MainWindow::setNamesToCombo(QStringList names) {
+
+    ui->combo_carNumber->clear();
+    ui->combo_carNumber->addItems(names);
 }

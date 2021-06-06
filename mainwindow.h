@@ -19,6 +19,7 @@ public:
 
 signals:
     void setStyleSignal(QString);
+    void getNames();
 
 private slots:
     void on_actionMaximizeWindow_toggled(bool arg1);
@@ -53,11 +54,14 @@ private slots:
 
     void on_actionMailSy_triggered();
 
+    void setNamesToCombo(QStringList);
+
 private:
     void startup();
     void applyStyleSheet(QString);
     void fitModelToView();
-    void applyAndFitModel(QSqlTableModel *);
+    void applyAndFitModel(QSqlTableModel*);
+    void fillComboNames();
 
     DBManager* m_dbHnd;
     InsertRecord* m_insertRecWindow;

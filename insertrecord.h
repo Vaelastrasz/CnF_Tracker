@@ -21,6 +21,7 @@ private slots:
 
     void on_buttonBox_rejected();
 
+public slots:
     void applyStyleSheet(QString);
 
 signals:

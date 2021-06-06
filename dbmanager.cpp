@@ -78,3 +78,16 @@ void DBManager::addNewRecord(CarRecord *rec) {
 
     m_currentModel->addNewRecord(rec);
 }
+
+void DBManager::processCarNamesRequest() {
+
+    QStringList names;
+    for (int idx = 0; idx < m_currentModel->rowCount(); idx++) {
+        QString currentName = m_currentModel->record(idx).value("CarName").toString();
+        if (!names.contains(currentName)) {
+            names.append(currentName);
+        }
+    }
+
+    emit sendCarNames(names);
+}

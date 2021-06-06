@@ -17,6 +17,9 @@ public:
     QSqlTableModel *getLastRecordsModel();
 public slots:
     void addNewRecord(CarRecord* rec);
+    void processCarNamesRequest();
+signals:
+    void sendCarNames(QStringList);
 
 private:
     int m_showRecCounter;
