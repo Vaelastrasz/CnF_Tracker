@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,19 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    dbmanager.cpp \
+    sqltablemodel.cpp \
+    insertrecord.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    dbmanager.h \
+    globalscope.h \
+    sqltablemodel.h \
+    insertrecord.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    insertrecord.ui
+
+RESOURCES += \
+    resources/resources.qrc

@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/about.png</file>
+        <file>icons/copy.png</file>
+        <file>icons/cut.png</file>
+        <file>icons/email.png</file>
+        <file>icons/exit.png</file>
+        <file>icons/export.png</file>
+        <file>icons/github.png</file>
+        <file>icons/import.png</file>
+        <file>icons/linkedin.png</file>
+        <file>icons/maximize.png</file>
+        <file>icons/minimize.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/redo.png</file>
+        <file>icons/switch.png</file>
+        <file>icons/undo.png</file>
+        <file>icons/truck.png</file>
+        <file>icons/plus.png</file>
+        <file>Medize.qss</file>
+        <file>icons/refresh.png</file>
+        <file>Cstartpage.qss</file>
+        <file>MailSy.qss</file>
+        <file>Diffnes.qss</file>
+        <file>icons/apply.png</file>
+    </qresource>
+</RCC>

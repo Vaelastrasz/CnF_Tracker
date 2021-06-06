@@ -1,24 +1,987 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>922</width>
+    <height>628</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QTabWidget" name="tabs">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_table">
+       <attribute name="title">
+        <string>General</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tv_mainTableView">
+          <property name="font">
+           <font>
+            <family>MS Shell Dlg 2</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="4" rowspan="3">
+           <widget class="QPushButton" name="btn_addRecord">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>New</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QRadioButton" name="rb_show1h">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>100</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lbl_showLast">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Show last: </string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <widget class="QRadioButton" name="rb_show1k">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>1000</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QRadioButton" name="rb_show1d">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>10</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" rowspan="3">
+           <widget class="QPushButton" name="btn_refresh">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_filter">
+       <attribute name="title">
+        <string>Summary</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="1" column="1">
+             <widget class="QComboBox" name="combo_carNumber">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QDateEdit" name="edit_startDate">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="dateTime">
+               <datetime>
+                <hour>0</hour>
+                <minute>0</minute>
+                <second>0</second>
+                <year>2021</year>
+                <month>6</month>
+                <day>5</day>
+               </datetime>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="lbl_endDate">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>End date:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QDateEdit" name="edit_endDate">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="dateTime">
+               <datetime>
+                <hour>0</hour>
+                <minute>0</minute>
+                <second>0</second>
+                <year>2021</year>
+                <month>6</month>
+                <day>5</day>
+               </datetime>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="lbl_startDate">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Start date:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="lbl_carNumber">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Car number:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="btn_apply">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>75</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Apply</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0">
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="1" column="0">
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QTableView" name="tv_result">
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="0" column="5">
+           <widget class="QLabel" name="lbl_res">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Result:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="5" rowspan="2">
+           <widget class="QLabel" name="lbl_result">
+            <property name="minimumSize">
+             <size>
+              <width>195</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="4" column="0">
+             <widget class="Line" name="line_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="Line" name="line_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="8">
+             <widget class="QLabel" name="lbl_fueling">
+              <property name="minimumSize">
+               <size>
+                <width>133</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Fueling</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="edit_driver">
+              <property name="text">
+               <string>Driver</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="6">
+             <widget class="QLabel" name="lbl_mileage">
+              <property name="minimumSize">
+               <size>
+                <width>133</width>
+                <height>22</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Mileage</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="6">
+             <widget class="QLineEdit" name="edit_mileage">
+              <property name="text">
+               <string>Mileage</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="8">
+             <widget class="QLineEdit" name="edit_fueling">
+              <property name="text">
+               <string>Fueling</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="lbl_driver">
+              <property name="minimumSize">
+               <size>
+                <width>133</width>
+                <height>22</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Driver</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="lbl_general">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>General:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QLineEdit" name="edit_tank">
+              <property name="text">
+               <string>Tank</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="lbl_fact">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Fact:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="lbl_period">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Period:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="6">
+             <widget class="QLineEdit" name="edit_alreadyRun">
+              <property name="text">
+               <string>Alreaty run</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QLabel" name="lbl_tank">
+              <property name="minimumSize">
+               <size>
+                <width>133</width>
+                <height>22</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Tank</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="8">
+             <widget class="QLineEdit" name="edit_fuelingFact">
+              <property name="text">
+               <string>FuelingFact</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="8">
+             <widget class="QLineEdit" name="edit_fuelingNorm">
+              <property name="text">
+               <string>FuelingNorm</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" rowspan="7">
+             <widget class="Line" name="line_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3" rowspan="7">
+             <widget class="Line" name="line_5">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="5" rowspan="7">
+             <widget class="Line" name="line_6">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="7" rowspan="7">
+             <widget class="Line" name="line_7">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="Line" name="line_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="4">
+             <widget class="Line" name="line_11">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="6">
+             <widget class="Line" name="line_12">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="8">
+             <widget class="Line" name="line_13">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="Line" name="line_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="4">
+             <widget class="Line" name="line_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="6">
+             <widget class="Line" name="line_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="8">
+             <widget class="Line" name="line_17">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="4" rowspan="4">
+           <widget class="Line" name="line_8">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbl_data">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Data for *carname* in period of *start* to *end*:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <widget class="Line" name="line_18">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="Line" name="line_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+       <zorder></zorder>
+       <zorder></zorder>
+      </widget>
+      <widget class="QWidget" name="tab_calculator">
+       <attribute name="title">
+        <string>Calculator</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>922</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionImport_DB"/>
+    <addaction name="actionExport_DB"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="separator"/>
+    <addaction name="actionSwitchTab"/>
+    <addaction name="separator"/>
+    <addaction name="actionMinimizeWindow"/>
+    <addaction name="actionMaximizeWindow"/>
+   </widget>
+   <widget class="QMenu" name="menuThemes">
+    <property name="title">
+     <string>Themes</string>
+    </property>
+    <addaction name="actionMedize"/>
+    <addaction name="actionDiffnes"/>
+    <addaction name="actionStartPage"/>
+    <addaction name="actionMailSy"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menuAbout"/>
+   <addaction name="menuThemes"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/copy.png</normaloff>:/icons/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/paste.png</normaloff>:/icons/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/redo.png</normaloff>:/icons/redo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/cut.png</normaloff>:/icons/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionSwitchTab">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/switch.png</normaloff>:/icons/switch.png</iconset>
+   </property>
+   <property name="text">
+    <string>Switch tab</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Tab</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About product</string>
+   </property>
+  </action>
+  <action name="actionMaximizeWindow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/maximize.png</normaloff>:/icons/maximize.png</iconset>
+   </property>
+   <property name="text">
+    <string>Maximize window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Return</string>
+   </property>
+  </action>
+  <action name="actionMinimizeWindow">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/minimize.png</normaloff>:/icons/minimize.png</iconset>
+   </property>
+   <property name="text">
+    <string>Minimize window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionImport_DB">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/import.png</normaloff>:/icons/import.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import DB</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+I</string>
+   </property>
+  </action>
+  <action name="actionExport_DB">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/export.png</normaloff>:/icons/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export DB</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+E</string>
+   </property>
+  </action>
+  <action name="actionMedize">
+   <property name="text">
+    <string>Medize</string>
+   </property>
+  </action>
+  <action name="actionDiffnes">
+   <property name="text">
+    <string>Diffnes</string>
+   </property>
+  </action>
+  <action name="actionStartPage">
+   <property name="text">
+    <string>StartPage</string>
+   </property>
+  </action>
+  <action name="actionMailSy">
+   <property name="text">
+    <string>MailSy</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <resources/>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>edit_startDate</tabstop>
+  <tabstop>edit_endDate</tabstop>
+  <tabstop>btn_apply</tabstop>
+  <tabstop>edit_driver</tabstop>
+  <tabstop>edit_tank</tabstop>
+  <tabstop>edit_mileage</tabstop>
+  <tabstop>edit_fueling</tabstop>
+  <tabstop>edit_alreadyRun</tabstop>
+  <tabstop>edit_fuelingNorm</tabstop>
+  <tabstop>edit_fuelingFact</tabstop>
+  <tabstop>rb_show1h</tabstop>
+  <tabstop>rb_show1k</tabstop>
+  <tabstop>rb_show1d</tabstop>
+  <tabstop>btn_refresh</tabstop>
+  <tabstop>tabs</tabstop>
+  <tabstop>tv_result</tabstop>
+  <tabstop>tv_mainTableView</tabstop>
+  <tabstop>btn_addRecord</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
