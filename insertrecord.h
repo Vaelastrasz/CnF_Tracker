@@ -24,6 +24,8 @@ private slots:
 public slots:
     void applyStyleSheet(QString);
 
+    void setUniqueNamesToCombo(QStringList);
+
 signals:
     void insertNewRecord(CarRecord*);
 

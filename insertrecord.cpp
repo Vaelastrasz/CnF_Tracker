@@ -52,6 +52,12 @@ void InsertRecord::applyStyleSheet(QString fileName) {
     this->setStyleSheet(styleSheet);
 }
 
+void InsertRecord::setUniqueNamesToCombo(QStringList names) {
+
+    ui->combo_carName->clear();
+    ui->combo_carName->addItems(names);
+}
+
 void InsertRecord::clearAllEdit() {
 
     ui->combo_carName->clear();

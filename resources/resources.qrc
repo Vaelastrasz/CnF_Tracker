@@ -22,5 +22,6 @@
         <file>Cstartpage.qss</file>
         <file>MailSy.qss</file>
         <file>Diffnes.qss</file>
+        <file>icons/apply.png</file>
     </qresource>
 </RCC>

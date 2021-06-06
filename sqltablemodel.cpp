@@ -31,7 +31,10 @@ bool SqlTableModel::addNewRecord(CarRecord* rec) {
 
     if (insertRecord(rowCount(), newRecord)) {
         qDebug() << "New record inserted";
+        return true;
     }
+
+    return false;
 }
 
 QString SqlTableModel::selectStatement() const {

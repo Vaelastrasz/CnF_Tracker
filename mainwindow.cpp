@@ -38,12 +38,14 @@ void MainWindow::startup() {
     this->setWindowIcon(QIcon(":/icons/truck.png"));
     ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
     ui->btn_refresh->setIcon(QIcon(":/icons/refresh.png"));
+    ui->btn_apply->setIcon(QIcon(":/icons/apply.png"));
 
     connect(m_insertRecWindow, &InsertRecord::insertNewRecord, m_dbHnd, &DBManager::addNewRecord);
     connect(m_insertRecWindow, &InsertRecord::insertNewRecord, this, &MainWindow::on_btn_refresh_clicked);
     connect(this, &MainWindow::setStyleSignal, m_insertRecWindow, &InsertRecord::applyStyleSheet);
     connect(this, &MainWindow::getNames, m_dbHnd, &DBManager::processCarNamesRequest);
-    connect(m_dbHnd, &DBManager::sendCarNames, this, &MainWindow::setNamesToCombo);
+    connect(m_dbHnd, &DBManager::sendCarNames, this, &MainWindow::setUniqueNamesToCombo);
+    connect(m_dbHnd, &DBManager::sendCarNames, m_insertRecWindow, &InsertRecord::setUniqueNamesToCombo);
 
     ui->edit_startDate->setCalendarPopup(true);
     ui->edit_startDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
@@ -162,6 +164,7 @@ void MainWindow::on_btn_refresh_clicked() {
 void MainWindow::on_btn_addRecord_clicked() {
 
     qDebug() << "addRecord";
+    fillComboNames();
 
     m_insertRecWindow->setModal(true);
     m_insertRecWindow->exec();
@@ -187,7 +190,7 @@ void MainWindow::on_actionMailSy_triggered() {
     applyStyleSheet(QString(":/MailSy.qss"));
 }
 
-void MainWindow::setNamesToCombo(QStringList names) {
+void MainWindow::setUniqueNamesToCombo(QStringList names) {
 
     ui->combo_carNumber->clear();
     ui->combo_carNumber->addItems(names);

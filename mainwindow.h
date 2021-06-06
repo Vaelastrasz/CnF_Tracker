@@ -54,7 +54,7 @@ private slots:
 
     void on_actionMailSy_triggered();
 
-    void setNamesToCombo(QStringList);
+    void setUniqueNamesToCombo(QStringList);
 
 private:
     void startup();
