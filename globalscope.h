@@ -18,11 +18,12 @@
 #include <QIcon>
 #include <QThread>
 #include <QCalendarWidget>
+#include <QTableView>
 
 #define TEXT(x) tr(x)
 #define DB_DEFAULT_PATH QString("D:\\Projects\\CnF_Tracker\\resources\\CarsDB.db")
-#define UI_MODEL ui->tv_mainTableView->model()
-#define UI_TABLE ui->tv_mainTableView
+#define UI_TABLE_WIDGET ui->tv_mainTableView
+#define UI_FILTER_WIDGET ui->tv_result
 
 struct CarRecord {
     QString   carName;

@@ -66,23 +66,23 @@ void MainWindow::applyStyleSheet(QString fileName) {
     emit setStyleSignal(fileName);
 }
 
-void MainWindow::fitModelToView() {
+void MainWindow::fitModelToView(QTableView* tableWidget) {
 
     int colCnt;
-    if (!UI_MODEL)
+    if (!tableWidget->model())
         return;
-    colCnt = UI_MODEL->columnCount();
+    colCnt = tableWidget->model()->columnCount();
     int* tableSizeArray = new int[colCnt];
-    UI_TABLE->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     for (int i = 0; i < colCnt - 1; i++) {
-        tableSizeArray[i] = UI_TABLE->horizontalHeader()->sectionSize(i);
+        tableSizeArray[i] = tableWidget->horizontalHeader()->sectionSize(i);
     }
 
-    UI_TABLE->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
     for (int i = 0; i < colCnt - 1; i++) {
-        emit UI_TABLE->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
-        qDebug() << UI_TABLE->horizontalHeader()->sectionSize(i);
+        emit tableWidget->horizontalHeader()->sectionResized(i, 0, tableSizeArray[i]);
+        qDebug() << tableWidget->horizontalHeader()->sectionSize(i);
     }
 
     delete[] tableSizeArray;
@@ -91,8 +91,10 @@ void MainWindow::fitModelToView() {
 void MainWindow::applyAndFitModel(QSqlTableModel* model) {
 
     if (!model) return;
-    UI_TABLE->setModel(model);
-    fitModelToView();
+    UI_TABLE_WIDGET->setModel(model);
+    fitModelToView(UI_TABLE_WIDGET);
+    UI_FILTER_WIDGET->setModel(model);
+    fitModelToView(UI_FILTER_WIDGET);
 }
 
 void MainWindow::fillComboNames() {
@@ -141,6 +143,7 @@ void MainWindow::on_tabs_currentChanged(int index) {
     }
     if (index == 1) {
         fillComboNames();
+        on_btn_refresh_clicked();
     }
 }
 
@@ -153,7 +156,8 @@ void MainWindow::showEvent(QShowEvent *event) {
 void MainWindow::resizeEvent(QResizeEvent *event) {
 
     QMainWindow::resizeEvent(event);
-    fitModelToView();
+    fitModelToView(UI_TABLE_WIDGET);
+    fitModelToView(UI_FILTER_WIDGET);
 }
 
 void MainWindow::on_btn_refresh_clicked() {
@@ -194,4 +198,9 @@ void MainWindow::setUniqueNamesToCombo(QStringList names) {
 
     ui->combo_carNumber->clear();
     ui->combo_carNumber->addItems(names);
+}
+
+void MainWindow::on_btn_apply_clicked() {
+
+
 }

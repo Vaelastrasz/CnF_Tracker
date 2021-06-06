@@ -56,10 +56,12 @@ private slots:
 
     void setUniqueNamesToCombo(QStringList);
 
+    void on_btn_apply_clicked();
+
 private:
     void startup();
     void applyStyleSheet(QString);
-    void fitModelToView();
+    void fitModelToView(QTableView*);
     void applyAndFitModel(QSqlTableModel*);
     void fillComboNames();
 
