@@ -7,10 +7,13 @@ InsertRecord::InsertRecord(QWidget *parent) :
 
     ui->setupUi(this);
     applyStyleSheet(QString(":/Medize.qss"));
+
     this->setWindowIcon(QIcon(":/icons/plus.png"));
     this->setWindowTitle("Add new record");
+
     ui->edit_date->setCalendarPopup(true);
     ui->edit_date->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
+    ui->edit_date->setDate(QDate::currentDate());
 }
 
 InsertRecord::~InsertRecord() {

@@ -65,7 +65,22 @@ void DBManager::setShowRecCounter(int showRecCounter) {
 
 QSqlTableModel* DBManager::getLastRecordsModel() {
 
+    m_currentModel->setFilter("");
     m_currentModel->setLimit(m_showRecCounter);
+    if (m_currentModel->select()) {
+        return m_currentModel;
+    } else {
+        qDebug() << "Error selecting values";
+        return nullptr;
+    }
+}
+
+QSqlTableModel *DBManager::getFilteredByNameDateModel(QString carName, QDate startDate, QDate endDate) {
+
+    QString filter = QString("CarName LIKE '%%1%' AND EventDate BETWEEN '%2' AND '%3'")
+            .arg(carName).arg(startDate.toString("yyyy-MM-dd")).arg(endDate.toString("yyyy-MM-dd"));
+    m_currentModel->setFilter(filter);
+    m_currentModel->setLimit(INT_MAX);
     if (m_currentModel->select()) {
         return m_currentModel;
     } else {
@@ -81,6 +96,7 @@ void DBManager::addNewRecord(CarRecord *rec) {
 
 void DBManager::processCarNamesRequest() {
 
+    m_currentModel->setLimit(INT_MAX);
     QStringList names;
     for (int idx = 0; idx < m_currentModel->rowCount(); idx++) {
         QString currentName = m_currentModel->record(idx).value("CarName").toString();

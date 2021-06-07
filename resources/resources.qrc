@@ -23,5 +23,6 @@
         <file>MailSy.qss</file>
         <file>Diffnes.qss</file>
         <file>icons/apply.png</file>
+        <file>icons/brush.png</file>
     </qresource>
 </RCC>

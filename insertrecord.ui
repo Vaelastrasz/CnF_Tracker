@@ -430,7 +430,7 @@
      <item row="8" column="4">
       <widget class="QDateEdit" name="edit_date">
        <property name="displayFormat">
-        <string>dd/MM/yyyy</string>
+        <string>MM/dd/yyyy</string>
        </property>
        <property name="date">
         <date>

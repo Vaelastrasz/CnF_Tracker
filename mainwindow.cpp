@@ -34,11 +34,7 @@ void MainWindow::on_actionMinimizeWindow_triggered() {
 
 void MainWindow::startup() {
 
-    this->setWindowTitle(TEXT("C&F Tracker v0.0.1"));
-    this->setWindowIcon(QIcon(":/icons/truck.png"));
-    ui->btn_addRecord->setIcon(QIcon(":/icons/plus.png"));
-    ui->btn_refresh->setIcon(QIcon(":/icons/refresh.png"));
-    ui->btn_apply->setIcon(QIcon(":/icons/apply.png"));
+    this->setWindowTitle(TEXT("C&F Tracker v") + SOFTWARE_VER);
 
     connect(m_insertRecWindow, &InsertRecord::insertNewRecord, m_dbHnd, &DBManager::addNewRecord);
     connect(m_insertRecWindow, &InsertRecord::insertNewRecord, this, &MainWindow::on_btn_refresh_clicked);
@@ -47,8 +43,11 @@ void MainWindow::startup() {
     connect(m_dbHnd, &DBManager::sendCarNames, this, &MainWindow::setUniqueNamesToCombo);
     connect(m_dbHnd, &DBManager::sendCarNames, m_insertRecWindow, &InsertRecord::setUniqueNamesToCombo);
 
+    ui->edit_startDate->setDate(QDate::currentDate());
     ui->edit_startDate->setCalendarPopup(true);
     ui->edit_startDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
+
+    ui->edit_endDate->setDate(QDate::currentDate());
     ui->edit_endDate->setCalendarPopup(true);
     ui->edit_endDate->calendarWidget()->setFirstDayOfWeek(Qt::Monday);
 
@@ -69,7 +68,7 @@ void MainWindow::applyStyleSheet(QString fileName) {
 void MainWindow::fitModelToView(QTableView* tableWidget) {
 
     int colCnt;
-    if (!tableWidget->model())
+    if (!tableWidget || !tableWidget->model())
         return;
     colCnt = tableWidget->model()->columnCount();
     int* tableSizeArray = new int[colCnt];
@@ -202,5 +201,9 @@ void MainWindow::setUniqueNamesToCombo(QStringList names) {
 
 void MainWindow::on_btn_apply_clicked() {
 
-
+    QString carName = ui->combo_carNumber->currentText();
+    QDate startDate = ui->edit_startDate->date();
+    QDate endDate = ui->edit_endDate->date();
+    applyAndFitModel(m_dbHnd->getFilteredByNameDateModel(carName, startDate, endDate));
+//    on_btn_refresh_clicked();
 }

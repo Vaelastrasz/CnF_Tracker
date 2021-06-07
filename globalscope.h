@@ -24,6 +24,7 @@
 #define DB_DEFAULT_PATH QString("D:\\Projects\\CnF_Tracker\\resources\\CarsDB.db")
 #define UI_TABLE_WIDGET ui->tv_mainTableView
 #define UI_FILTER_WIDGET ui->tv_result
+#define SOFTWARE_VER "0.0.5"
 
 struct CarRecord {
     QString   carName;

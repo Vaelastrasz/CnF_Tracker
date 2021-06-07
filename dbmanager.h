@@ -15,6 +15,7 @@ public:
     int showRecCounter() const;
     void setShowRecCounter(int showRecCounter);
     QSqlTableModel *getLastRecordsModel();
+    QSqlTableModel *getFilteredByNameDateModel(QString, QDate, QDate);
 public slots:
     void addNewRecord(CarRecord* rec);
     void processCarNamesRequest();
