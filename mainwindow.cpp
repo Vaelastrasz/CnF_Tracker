@@ -205,5 +205,4 @@ void MainWindow::on_btn_apply_clicked() {
     QDate startDate = ui->edit_startDate->date();
     QDate endDate = ui->edit_endDate->date();
     applyAndFitModel(m_dbHnd->getFilteredByNameDateModel(carName, startDate, endDate));
-//    on_btn_refresh_clicked();
 }

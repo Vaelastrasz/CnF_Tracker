@@ -67,7 +67,6 @@ void InsertRecord::clearAllEdit() {
     ui->edit_driver->clear();
     ui->edit_tankCap->clear();
     ui->edit_mileage->clear();
-
     ui->edit_alreadyRun->clear();
     ui->edit_fueling->clear();
     ui->edit_fuelingNorm->clear();
