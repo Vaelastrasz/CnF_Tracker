@@ -459,7 +459,7 @@
             <item row="1" column="2">
              <widget class="QLineEdit" name="edit_driver">
               <property name="text">
-               <string>Driver</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -482,7 +482,7 @@
             <item row="1" column="6">
              <widget class="QLineEdit" name="edit_mileage">
               <property name="text">
-               <string>Mileage</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -492,7 +492,7 @@
             <item row="1" column="8">
              <widget class="QLineEdit" name="edit_fueling">
               <property name="text">
-               <string>Fueling</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -528,7 +528,7 @@
             <item row="1" column="4">
              <widget class="QLineEdit" name="edit_tank">
               <property name="text">
-               <string>Tank</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -564,7 +564,7 @@
             <item row="3" column="6">
              <widget class="QLineEdit" name="edit_alreadyRun">
               <property name="text">
-               <string>Alreaty run</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -587,7 +587,7 @@
             <item row="6" column="8">
              <widget class="QLineEdit" name="edit_fuelingFact">
               <property name="text">
-               <string>FuelingFact</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -597,7 +597,7 @@
             <item row="3" column="8">
              <widget class="QLineEdit" name="edit_fuelingNorm">
               <property name="text">
-               <string>FuelingNorm</string>
+               <string/>
               </property>
               <property name="readOnly">
                <bool>true</bool>
@@ -720,7 +720,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Data for *carname* in period of *start* to *end*:</string>
+             <string>Data for CE1321BE in period of 05/06/2021 to 15/06/2021:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -802,8 +802,8 @@
     </property>
     <addaction name="actionMedize"/>
     <addaction name="actionDiffnes"/>
-    <addaction name="actionStartPage"/>
     <addaction name="actionMailSy"/>
+    <addaction name="actionStartPage"/>
    </widget>
    <addaction name="menu_File"/>
    <addaction name="menuAbout"/>
@@ -960,7 +960,7 @@
      <normaloff>:/icons/brush.png</normaloff>:/icons/brush.png</iconset>
    </property>
    <property name="text">
-    <string>Medize</string>
+    <string>Flat Light</string>
    </property>
   </action>
   <action name="actionDiffnes">
@@ -969,7 +969,7 @@
      <normaloff>:/icons/brush.png</normaloff>:/icons/brush.png</iconset>
    </property>
    <property name="text">
-    <string>Diffnes</string>
+    <string>Flat Dark</string>
    </property>
   </action>
   <action name="actionStartPage">
@@ -978,7 +978,7 @@
      <normaloff>:/icons/brush.png</normaloff>:/icons/brush.png</iconset>
    </property>
    <property name="text">
-    <string>StartPage</string>
+    <string>Contrast Dark</string>
    </property>
   </action>
   <action name="actionMailSy">
@@ -987,7 +987,7 @@
      <normaloff>:/icons/brush.png</normaloff>:/icons/brush.png</iconset>
    </property>
    <property name="text">
-    <string>MailSy</string>
+    <string>Classic Grey</string>
    </property>
   </action>
  </widget>

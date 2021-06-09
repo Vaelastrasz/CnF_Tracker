@@ -204,5 +204,7 @@ void MainWindow::on_btn_apply_clicked() {
     QString carName = ui->combo_carNumber->currentText();
     QDate startDate = ui->edit_startDate->date();
     QDate endDate = ui->edit_endDate->date();
+    QString labelValue = QString("Data for %1 in period of %2 to %3:").arg(carName).arg(startDate.toString("dd/MM/yyyy")).arg(endDate.toString("dd/MM/yyyy"));
+    ui->lbl_data->setText(labelValue);
     applyAndFitModel(m_dbHnd->getFilteredByNameDateModel(carName, startDate, endDate));
 }

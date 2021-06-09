@@ -1,3 +1,12 @@
+QTabBar::tab:selected {
+    background-color: #668391;
+}
+
+QTabBar::tab {
+    background-color: #49515c;
+}
+
+
 QWidget
 {
 	background-color: #49515c; 
